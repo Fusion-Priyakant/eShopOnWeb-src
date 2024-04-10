@@ -22,14 +22,14 @@ jobs:
         zip -r PublicApi_Release.zip  src/PublicApi/bin/Release/net8.0
         zip -r Web_Release.zip  src/Web/bin/Release/net8.0
         
-    - name: Upload PublicApi Release
-      uses: actions/upload-artifact@v2
+    - name: Upload Release
+      uses: xresloader/upload-to-github-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: PublicApi_Release
-        path: ./PublicApi_Release.zip
-
-    - name: Upload Web Release
-      uses: actions/upload-artifact@v2
-      with:
-        name: Web_Release
-        path: ./Web_Release.zip
+        file: |
+          ./PublicApi_Release.zip
+          ./Web_Release.zip
+        tags: false
+        draft: false
+          
