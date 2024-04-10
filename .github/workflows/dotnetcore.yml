@@ -5,7 +5,7 @@ on: [workflow_dispatch]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -21,8 +21,7 @@ jobs:
       run: |
         zip -r PublicApi_Release.zip  src/PublicApi/bin/Release/net8.0
         zip -r Web_Release.zip  src/Web/bin/Release/net8.0
-        pwd
-        ls
+
         
     - name: Upload Release
       uses: xresloader/upload-to-github-release@v1
