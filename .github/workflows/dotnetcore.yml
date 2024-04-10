@@ -21,15 +21,15 @@ jobs:
       run: |
         zip -r PublicApi_Release.zip  src/PublicApi/bin/Release/net8.0
         zip -r Web_Release.zip  src/Web/bin/Release/net8.0
+        pwd
+        ls
         
     - name: Upload Release
       uses: xresloader/upload-to-github-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        file: |
-          PublicApi_Release.zip
-          Web_Release.zip
+        file: "PublicApi_Release.zip;Web_Release.zip"
         tags: false
         draft: false
           
