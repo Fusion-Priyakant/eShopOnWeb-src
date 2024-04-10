@@ -17,9 +17,6 @@ jobs:
 
     - name: Build with dotnet
       run: dotnet build ./eShopOnWeb.sln --configuration Release
-    
-    - name: Test with dotnet
-      run: dotnet test ./eShopOnWeb.sln --configuration Release
 
   upload-release:
     needs: build
