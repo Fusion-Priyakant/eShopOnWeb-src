@@ -26,11 +26,11 @@ jobs:
     - name: Zip PublicApi Release folder
       run: |
         pwd
-        zip -r PublicApi_Release.zip -i /eShopOnWeb-src/src/PublicApi/bin/Release
+        zip -r PublicApi_Release.zip -i /src/PublicApi/bin/Release
       # Creates a zip file named PublicApi_Release.zip containing the contents of the PublicApi Release folder
 
     - name: Zip Web Release folder
-      run: zip -r Web_Release.zip -i /eShopOnWeb-src/src/Web/bin/Release
+      run: zip -r Web_Release.zip -i /src/Web/bin/Release
       # Creates a zip file named Web_Release.zip containing the contents of the Web Release folder
 
     - name: Upload PublicApi Release
