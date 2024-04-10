@@ -17,30 +17,9 @@ jobs:
 
     - name: Build with dotnet
       run: dotnet build ./eShopOnWeb.sln --configuration Release
-
-  upload-release:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Zip PublicApi Release folder
       run: |
-        ls -la
+        pwd
+        ls -la        
         #zip -r PublicApi_Release.zip -i /src/PublicApi/bin/Release/
       # Creates a zip file named PublicApi_Release.zip containing the contents of the PublicApi Release folder
-
-    - name: Zip Web Release folder
-      run: zip -r Web_Release.zip -i /src/Web/bin/Release/
-      # Creates a zip file named Web_Release.zip containing the contents of the Web Release folder
-
-    - name: Upload PublicApi Release
-      uses: actions/upload-artifact@v2
-      with:
-        name: PublicApi_Release
-        path: ./PublicApi_Release.zip
-
-    - name: Upload Web Release
-      uses: actions/upload-artifact@v2
-      with:
-        name: Web_Release
-        path: ./Web_Release.zip
