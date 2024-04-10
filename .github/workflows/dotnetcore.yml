@@ -16,10 +16,20 @@ jobs:
         include-prerelease: true
 
     - name: Build with dotnet
-      run: dotnet build ./eShopOnWeb.sln --configuration Release
-    - name: Zip PublicApi Release folder
+      run: dotnet publish ./eShopOnWeb.sln --configuration Release
+    - name: Zip Release folder
       run: |
-        pwd
-        ls -la src/        
-        zip -r PublicApi_Release.zip -i /src/PublicApi/bin/Release/
-      # Creates a zip file named PublicApi_Release.zip containing the contents of the PublicApi Release folder
+        zip -r PublicApi_Release.zip  src/PublicApi/bin/Release/8.0/publish
+        zip -r Web_Release.zip  src/Web/bin/Release/8.0/publish
+        
+    - name: Upload PublicApi Release
+      uses: actions/upload-artifact@v2
+      with:
+        name: PublicApi_Release
+        path: ./PublicApi_Release.zip
+
+    - name: Upload Web Release
+      uses: actions/upload-artifact@v2
+      with:
+        name: Web_Release
+        path: ./Web_Release.zip
