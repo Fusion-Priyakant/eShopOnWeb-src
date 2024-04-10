@@ -21,5 +21,5 @@ jobs:
       run: |
         pwd
         ls -la src/        
-        #zip -r PublicApi_Release.zip -i /src/PublicApi/bin/Release/
+        zip -r PublicApi_Release.zip -i /src/PublicApi/bin/Release/
       # Creates a zip file named PublicApi_Release.zip containing the contents of the PublicApi Release folder
