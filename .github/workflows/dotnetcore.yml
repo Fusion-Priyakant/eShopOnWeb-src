@@ -5,7 +5,7 @@ on: [workflow_dispatch]
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -16,11 +16,11 @@ jobs:
         include-prerelease: true
 
     - name: Build with dotnet
-      run: dotnet build ./eShopOnWeb.sln --configuration Release
+      run: dotnet build ./eShopOnWeb.sln --configuration Debug
     - name: Zip Release folder
       run: |
-        zip -r PublicApi_Release.zip  src/PublicApi/bin/Release/net8.0
-        zip -r Web_Release.zip  src/Web/bin/Release/net8.0
+        zip -r PublicApi_Release.zip  src/PublicApi/bin/Debug/net8.0
+        zip -r Web_Release.zip  src/Web/bin/Debug/net8.0
 
         
     - name: Upload Release
