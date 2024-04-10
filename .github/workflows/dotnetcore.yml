@@ -25,8 +25,8 @@ jobs:
     steps:
     - name: Zip PublicApi Release folder
       run: |
-        pwd
-        zip -r PublicApi_Release.zip -i /src/PublicApi/bin/Release/
+        ls -la /src/
+        #zip -r PublicApi_Release.zip -i /src/PublicApi/bin/Release/
       # Creates a zip file named PublicApi_Release.zip containing the contents of the PublicApi Release folder
 
     - name: Zip Web Release folder
